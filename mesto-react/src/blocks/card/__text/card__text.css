@@ -1,0 +1,9 @@
+.card__text {
+    display: flex;
+    justify-content: space-between;
+    margin: 22px 15px 22px 21px;
+    align-items: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

@@ -1,0 +1,8 @@
+.card__elements {
+    max-width: 282px;
+    display: block;
+    background: #FFFFFF;
+    border-radius: 10px;
+    line-height: 0;
+    position: relative;
+}
