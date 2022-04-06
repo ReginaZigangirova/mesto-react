@@ -56,9 +56,9 @@ function handleCardClick(card) {
       name='edit'
       buttonText='Сохранить'>
          <input type="text"  placeholder="Имя" className="popup__input popup__input_type_name" name="name" id="nameInput"  required/>
-                    <span className="popup__error" id="nameInput-error"></span>
-                    <input type="text" placeholder="Описание" className="popup__input  popup__input_type_job" name="about" id="jobInput"  required/>
-                    <span className="popup__error" id="jobInput-error"></span>
+         <span className="popup__error" id="nameInput-error"></span>
+         <input type="text" placeholder="Описание" className="popup__input  popup__input_type_job" name="about" id="jobInput"  required/>
+         <span className="popup__error" id="jobInput-error"></span>
       </PopupWithForm>
        
       <PopupWithForm 
@@ -68,7 +68,7 @@ function handleCardClick(card) {
       name='avatar'
       buttonText='Сохранить'>
         <input type="url" placeholder="Обновить аватар" className="popup__input popup__input_type_avatar" name="avatar" id="editAvatar" required/>
-                    <span className="popup__error" id="editAvatar-error"></span>
+        <span className="popup__error" id="editAvatar-error"></span>
       </PopupWithForm>
     
       <PopupWithForm 
@@ -78,9 +78,9 @@ function handleCardClick(card) {
       name = 'add-card'
       buttonText = 'Создать'>
         <input type="text" placeholder="Название" className="popup__input popup__input_type_card-name" name="name" id="cardname-input"  required/>
-                    <span className="popup__error" id="cardname-input-error"></span>
-                    <input type="url" placeholder="Ссылка на картинку" className="popup__input  popup__input_type_card-link" name="link" id="link-input" required/>
-                    <span className="popup__error" id="link-input-error"></span>
+        <span className="popup__error" id="cardname-input-error"></span>
+        <input type="url" placeholder="Ссылка на картинку" className="popup__input  popup__input_type_card-link" name="link" id="link-input" required/>
+        <span className="popup__error" id="link-input-error"></span>
       </PopupWithForm>
       
       <ImagePopup card={selectedCard} onClose={closeAllPopups}/>
