@@ -61,7 +61,13 @@
              headers: this._headers,
          }).then(this._checkResponse)
      }
-
+     changeLikeCardStatus(id, isLiked) {
+         if (isLiked === true) {
+             return this.deleteLike(id);
+         } else {
+             return this.addLike(id);
+         }
+     }
      setAvatar(avatar) {
          return fetch(`${this._baseUrl}/users/me/avatar`, {
              method: 'PATCH',

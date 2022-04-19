@@ -13,7 +13,7 @@ import AddPlacePopup from './AddPlacePopup';
 function App() {
    const [currentUser, setCurrentUser] = React.useState({});
   React.useEffect(() => {
-    Promise.all([api.getProfile()])
+    Promise.all([api.getProfile()]) 
     .then(([user]) => {
       setCurrentUser(user);
     }).catch((err) => {
@@ -63,18 +63,7 @@ function handleUpdateUser(user) {
       console.log(err);
     });
 }
-// function handleUpdateUser(user) {
-//   api.editProfile(user.name, user.about)
-//     .then((res) => {
-//       if (res.ok) {
-//         setCurrentUser(user)
-//         closeAllPopups();
-//       }
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// }
+
 //редактирование аватара
 function handleAvatarUpdate({ avatar }) {
   api.setAvatar(avatar)
@@ -97,21 +86,16 @@ const [cards, setCards] = React.useState([])
     }, [])
 //лайк
 function handleCardLike(card) {
- 
   const isLiked = card.likes.some(i => i._id === currentUser._id);
-  
-  if (!isLiked) {
-      api.addLike(card._id, !isLiked).then((newCard) => {
-          setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-      });
-  } else {
-      api.deleteLike(card._id).then((newCard) => {
-          setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
-        }).catch((err) => {
-          console.error(err);
-        });
-  }
-} 
+  api.changeLikeCardStatus(card._id, isLiked)
+    .then((newCard) => {
+      const newCards = cards.map((c) => (c._id === card._id ? newCard : c));
+      setCards(newCards);
+    })
+    .catch((res) => {
+      console.log(res);
+    });
+}
 //удаление карточки
 function handleCardDelete(card) {
   api.deleteCard(card._id)
